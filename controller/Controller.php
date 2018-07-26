@@ -7,6 +7,7 @@ class Controller{
     session_start();
  
     //Cargar todos los modelos
+    require_once('model/Model.php');
     foreach(glob("model/*.php") as $file){
       require_once $file;
     }
