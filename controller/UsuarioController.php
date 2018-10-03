@@ -39,8 +39,9 @@ class UsuarioController extends Controller{
   
   function login(){
     $user = $this->usuario->getBy('nombre',$this->user);
-    
-    if(hash_equals($user[0]->contrasena, crypt($this->pass, $user[0]->contrasena))){
+    $pass1 = crypt($this->pass, $user[0]->contrasena);
+    $pass2 = crypt($this->pass, $user[0]->contrasena);
+    if(hash_equals($pass1,$pass2)){
       $_SESSION['login']=true;
       $_SESSION['usuario']=$user;
       

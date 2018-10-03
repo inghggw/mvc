@@ -17,9 +17,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `worldskill`
+-- Base de datos: `mvc`
 --
-
+CREATE DATABASE IF NOT EXISTS `mvc`;
 -- --------------------------------------------------------
 
 --
