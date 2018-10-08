@@ -1,13 +1,7 @@
-<?php
-
-include('layout/head.php');
-
+<?php include('layout/head.php');
 //echo '<div class="jumbotron text-center">'.$prueba."  ".$prueba2.'</div>';
-
 ?>
-
-
-<form id="fLogin" class="form btnAjax">
+<form id="fLogin" class="form btnAjax col-md-6 offset-md-3">
   <input type="hidden" value="usuario" name="c">
   <input type="hidden" value="login" name="a">
   

@@ -9,7 +9,7 @@ class InicioController extends Controller{
   function index(){
 //    var_dump($_SESSION['login']);
     
-    if($_SESSION['login']==true){
+    if(isset($_SESSION['login'])==true){
       $this->view('principal',['usuario'=>$_SESSION['usuario'],
                               'login'=>$_SESSION['login'],
                               'menu'=>$_SESSION['menu']]); 

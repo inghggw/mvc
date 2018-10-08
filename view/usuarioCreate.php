@@ -14,7 +14,7 @@
   </div>
   <div class="form-group">
     <label for="contrasena">Contraseña</label>
-    <input type="password" id="contrasena" class="form-control" name="contrasena" required pattern="[A-Za-z]{0,45}">
+    <input type="password" id="contrasena" class="form-control" name="contrasena" required>
   </div>
   <input type="submit" class="btn btn-primary" value="Crear">
   <a href="index.php?c=usuario&a=index" class="btn btn-dark">Volver</a>

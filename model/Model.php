@@ -20,7 +20,10 @@ class Model{
   
   private function conexion(){
     
-    $con = new PDO($this->driver.':host='.$this->host.';dbname='.$this->database.';charset='.$this->charset,$this->user,$this->pass);
+    $con = new PDO($this->driver.':host='.$this->host.
+                    ';dbname='.$this->database.
+                    ';charset='.$this->charset,
+                    $this->user,$this->pass);
     return $con;
   }
   

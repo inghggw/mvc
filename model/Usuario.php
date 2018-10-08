@@ -23,7 +23,7 @@ class Usuario extends Model{
   }
   
   function setContrasena($con){
-    $this->contrasena = crypt($con);
+    $this->contrasena = $con;
   }
   
   function guardar(){

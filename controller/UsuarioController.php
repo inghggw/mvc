@@ -6,35 +6,16 @@ class UsuarioController extends Controller{
     parent::__construct();//Cargar todos los models
     $this->usuario = new Usuario;
   }
-  
-  
-//  function index(){
-//    echo "Index desde UsuarioController";
-//  }
-//  
-//  function create(){
-//    echo "Create desde UsarioController";
-//  }
-  
-//  function index(){
-//    
-//    //Cargamos la vista index y le pasamos los valores
-//    $this->view("usuario",array(
-//      "prueba"=>'El usuario'
-//    ));
-//  }
-  
+
   function index(){
 
     $dat = $this->usuario->getAll();
       
-    if($_SESSION['login']==true){
-      $this->view("usuario",["dat"=>$dat]);
-      
+    if(isset($_SESSION['login'])==true){
+      $this->view("usuario",["dat"=>$dat]); 
     }else{
       $this->view('inicio');
     }
-    
   }
   
   function login(){
@@ -56,9 +37,6 @@ class UsuarioController extends Controller{
                       'msj'=>'El usuario o constraseña son icorrectos',
                      'title'=>'Mensaje']);
     }
-//    echo "Login";
-//    var_dump($user);
-    
   }
   
   function create(){

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>MVC Comercio</title>
-  
-<!--  Librerias css-->
+  <!--Librerias css-->
   <link rel="stylesheet" href="public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="public/css/estilos.css">
 </head>
 <body>
 
@@ -16,22 +16,18 @@
   </button>
   
   <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-    <ul class="navbar-nav">
-           
-      
+    <ul class="navbar-nav">        
       <?php
-          
-        
-        //echo var_dump($menu);
-      
-        foreach($menu as $key => $value){
-          echo '<li class="nav-item"><a class="nav-link" href="index.php?c='.$value->controlador.'&a='.$value->accion.'">'.$value->nombre.'</a></li>';
+        //var_dump($menu);
+        if(isset($menu)){
+          foreach($menu as $key => $value){
+            echo '<li class="nav-item"><a class="nav-link" href="index.php?c='.$value->controlador.'&a='.$value->accion.'">'.$value->nombre.'</a></li>';
+          }
         }
-//        var_dump($_SESSION['menu']); 
-      
+      //var_dump($_SESSION['menu']); 
       ?>
             
-      <?php if($_SESSION['login']==true){?> 
+      <?php if(isset($_SESSION['login'])==true){?> 
       
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown"><?php echo $_SESSION['usuario'][0]->nombre ?></a>
@@ -46,18 +42,10 @@
         <li class="nav-item">
           <a href="index.php?c=inicio&a=login" class="nav-link btn btn-secondary text-white">Ingresar</a>
         </li>
-        
+        <li class="nav-item ml-2">
+          <a href="index.php?c=cliente&a=create" class="nav-link btn btn-info text-white">Registrarse</a>
+        </li>
       <?php } ?>
-<!--
-      <li class="nav-item">
-        <button class="nav-link btn btn-secondary text-white">Cerrar sesion</button>
-      </li>
--->
-<!--
-      <li class="nav-item">
-        <button class="nav-link btn btn-secondary text-white">Ingresar</button>
-      </li>
--->
     </ul>
   </div>
 </nav>
