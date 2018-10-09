@@ -19,8 +19,8 @@
     <ul class="navbar-nav">        
       <?php
         //var_dump($menu);
-        if(isset($menu)){
-          foreach($menu as $key => $value){
+        if(isset($_SESSION['menu'])){
+          foreach($_SESSION['menu'] as $key => $value){
             echo '<li class="nav-item"><a class="nav-link" href="index.php?c='.$value->controlador.'&a='.$value->accion.'">'.$value->nombre.'</a></li>';
           }
         }
@@ -40,10 +40,10 @@
       <?php }else{ ?>
   
         <li class="nav-item">
-          <a href="index.php?c=inicio&a=login" class="nav-link btn btn-secondary text-white">Ingresar</a>
+          <a href="index.php?c=inicio&a=login" class="nav-link btn btn-secondary text-white">Ingreso Usuarios</a>
         </li>
         <li class="nav-item ml-2">
-          <a href="index.php?c=cliente&a=create" class="nav-link btn btn-info text-white">Registrarse</a>
+          <a href="index.php?c=cliente&a=create" class="nav-link btn btn-info text-white">Registro Clientes</a>
         </li>
       <?php } ?>
     </ul>

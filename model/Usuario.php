@@ -23,7 +23,7 @@ class Usuario extends Model{
   }
   
   function setContrasena($con){
-    $this->contrasena = $con;
+    $this->contrasena = password_hash($con, PASSWORD_DEFAULT);
   }
   
   function guardar(){

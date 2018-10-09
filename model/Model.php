@@ -30,10 +30,7 @@ class Model{
   public function getAll(){
     
     $query = $this->db->query("SELECT * FROM $this->table ORDER BY id DESC");
-//    var_dump($this->database);
-    
-//    var_dump($query->rowCount()); 
-    
+
     if($query->rowCount() > 0){
       while ($row = $query->fetchObject()){
         $res[]=$row;
@@ -42,20 +39,20 @@ class Model{
     }else{
       return false;
     }
-    
-    
-//    return $query;
   }
   
   public function getById($id){
     
     $query = $this->db->query("SELECT * FROM $this->table WHERE id=$id");
     
-    if($row = $query->fetchObject()){
-      $resultSet=$row;
+    if ($query->rowCount()>0) {
+      if($row = $query->fetchObject()){
+        $resultSet=$row;
+      }
+      return $resultSet;
+    }else{
+      return false;
     }
-    
-    return $resultSet;
   }
   
   
@@ -63,11 +60,14 @@ class Model{
     
     $query = $this->db->query("SELECT * FROM $this->table WHERE $column='$value'");
     
-    while($row = $query->fetchObject()){
-      $resultSet[] = $row;
+    if ($query->rowCount()>0) {
+      while($row = $query->fetchObject()){
+        $resultSet[] = $row;
+      }
+      return $resultSet;
+    }else{
+      return false;
     }
-    
-    return $resultSet;
   }
   
   public function deleteById($id){

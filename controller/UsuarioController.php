@@ -20,22 +20,30 @@ class UsuarioController extends Controller{
   
   function login(){
     $user = $this->usuario->getBy('nombre',$this->user);
-    $pass1 = crypt($this->pass, $user[0]->contrasena);
-    $pass2 = crypt($this->pass, $user[0]->contrasena);
-    if(hash_equals($pass1,$pass2)){
-      $_SESSION['login']=true;
-      $_SESSION['usuario']=$user;
+
+    if ($user!=false) {
       
-      $this->usuario->setId($user[0]->id);
-      $_SESSION['menu'] = $this->usuario->itemUsuario();
-      
-      echo json_encode(['salida'=>'redirect',
-                      'c'=>'inicio',
-                     'a'=>'index']);
+      //Verificar que la contraseña coincida
+      if(password_verify($this->pass, $user[0]->contrasena)){
+
+        $_SESSION['login']=true;
+        $_SESSION['usuario']=$user;
+        
+        $this->usuario->setId($user[0]->id);
+        $_SESSION['menu'] = $this->usuario->itemUsuario();
+        
+        echo json_encode(['salida'=>'redirect',
+                        'c'=>'inicio',
+                       'a'=>'index']);
+      }else{
+        echo json_encode(['salida'=>'modal',
+                        'msj'=>'El usuario o constraseña son incorrectos',
+                       'title'=>'Mensaje']);
+      }
     }else{
       echo json_encode(['salida'=>'modal',
-                      'msj'=>'El usuario o constraseña son icorrectos',
-                     'title'=>'Mensaje']);
+                        'msj'=>'El usuario o constraseña son incorrectos',
+                       'title'=>'Mensaje']);
     }
   }
   
