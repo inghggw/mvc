@@ -11,15 +11,15 @@ class ClienteController extends Controller{
 	}
 
 	public function store(){
-		/*echo $this->tipodocumento;
+		echo $this->tipodocumento;
 		echo $this->documento;
 		echo $this->nombre;
-		echo $this->apellido;*/
-		$this->cli->nombre = $this->nombre;
+		echo $this->apellido;
+		/*$this->cli->nombre = $this->nombre;
 		$this->cli->apellido = $this->apellido;
 		$this->cli->tipo_documento_id = $this->tipodocumento;
 		$this->cli->documento = $this->documento;
-		$this->cli->guardar();
+		$this->cli->guardar();*/
 	}
 }
 ?>

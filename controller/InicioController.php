@@ -40,4 +40,12 @@ class InicioController extends Controller{
   function plantillaFlex(){
     $this->view('plantillaFlex');
   }
+
+  function pruebaAjax(){
+    $this->view('pruebaAjax');
+  }
+
+  function mostrarArreglo(){
+    echo json_encode(["Yamaha","Honda","Suzuki"]);
+  }
 }
